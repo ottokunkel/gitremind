@@ -1,32 +1,33 @@
 import { createClient } from "@/lib/supabase/client";
+import { UserSettings } from "@/types/settings";
 import { User } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 
-type Settings = {
-  phone: string;
-  reminder: boolean;
-}
+
 
 export function useSettings(user: User | null): {
-  settings: Settings | null;
+  settings: UserSettings | null;
   loading: boolean;
   error: string | null; 
 } {
    const supabase = createClient()
-   const [settings, setSettings] = useState<Settings | null>(null)
+   const [settings, setSettings] = useState<UserSettings | null>(null)
    const [loading, setLoading] = useState(true)
    const [error, setError] = useState<string | null>(null)
 
    useEffect(() => {
     const fetchSettings = async () => {
+      if (!user) {
+        setLoading(false)
+        return
+      }
      
-      // Fetch the settings for the user
       setLoading(true)
 
       const { data, error } = await supabase
         .from('settings')
         .select('*')
-        .eq('user', user?.id)
+        .eq('user', user.id)
         .single();
 
       if (error) {
