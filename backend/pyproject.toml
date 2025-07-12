@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gitremind-backend"
+version = "0.1.0"
+description = "Backend API for GitRemind - A reminder service with FastAPI and Celery"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.104.1",
+    "uvicorn[standard]>=0.24.0",
+    "celery>=5.3.4",
+    "python-dotenv>=1.0.0",
+    "redis>=5.0.1",
+]
+
+[project.scripts]
+gitremind-api = "src.app:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.setuptools.package-dir]
+"" = "."
