@@ -1,9 +1,7 @@
-# Python
-FROM python:3.11-slim
+# Python 3.12
+FROM python:3.12-slim-bookworm
 
-# install uv and curl
-RUN apt-get update && apt-get install -y curl 
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 ENV PATH="/root/.cargo/bin:$PATH"
 
 # Set working directory

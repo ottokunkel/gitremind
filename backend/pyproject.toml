@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gitremind_backend"
+name = "gitremind-backend"
 version = "0.1.0"
 description = "Backend API for GitRemind - A reminder service with FastAPI and Celery"
 readme = "README.md"
@@ -18,7 +18,7 @@ dependencies = [
 ]
 
 [project.scripts]
-gitremind_backend = "uv run uvicorn src.app:app --host 0.0.0.0 --port 8000"
+gitremind-backend = "main:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
