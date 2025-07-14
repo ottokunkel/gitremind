@@ -21,3 +21,8 @@ app = Celery(
     backend=redis_url + '/1'
 )
 
+# Configure autodiscovery
+app.conf.update(
+    include=['src.tasks']
+)
+
