@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+---
+You are an expert backend engineer. Make sure to follow the given files as a reference when writing new files. 
+
+These serve as a gold standard:
+
+API - `.cursor/gold/user.py`
