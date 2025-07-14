@@ -1,19 +1,18 @@
-# Use Python 3.11 slim image
+# Python
 FROM python:3.11-slim
 
-# Install uv
+# install uv and curl
+RUN apt-get update && apt-get install -y curl 
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-ENV PATH="/root/.cargo/bin:$PATH"
+ENV PATH="/root/.local/bin:$PATH"
 
 # Set working directory
 WORKDIR /app
 
-# Copy dependency files
+# Copy dependency files and install dependencies
 COPY pyproject.toml ./
-RUN uv sync
-
-# Copy application code
 COPY src/ ./src/
+RUN uv sync
 
 # Expose port 8000 for FastAPI
 EXPOSE 8000
