@@ -1,0 +1,12 @@
+[project]
+name = "worker"
+version = "0.1.0"
+description = "Celery worker for task management"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "celery>=5.3.0",
+    "redis>=5.0.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+]

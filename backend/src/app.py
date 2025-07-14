@@ -1,21 +1,21 @@
-from fastapi import APIRouter
-from datetime import datetime, timedelta
+from fastapi import FastAPI
+from slowapi import _rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
 
-from src.api.scheduler.tasks import send_reminder_task
-from src.api.models.requests import ReminderRequest
+from src.api.routes import router, limiter
 
-router = APIRouter()
+# Create FastAPI app with disabled docs
+app = FastAPI(
+    title="GitRemind API",
+    description="A reminder service with FastAPI and Celery",
+    version="0.1.0",
+    docs_url=None,  # Disable Swagger UI
+    redoc_url=None,  # Disable ReDoc
+)
 
-#===============================================#
-# Routes
-#===============================================#
+# Add rate limiting middleware
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-@router.get("/")
-async def root():
-    """Root endpoint to check if the API is running"""
-    return {"message": "GitRemind API is running"}
-
-@router.post("/reminder/add")
-async def add_reminder(request: ReminderRequest):
-    """Add a reminder task to the queue"""
-    return send_reminder_task(request.user_id, datetime.now() + timedelta(seconds=10))
+# Include the router in the app
+app.include_router(router)
