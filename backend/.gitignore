@@ -5,6 +5,7 @@
 # OS/Cache Files
 .DS_Store
 __pycache__/
+uv.lock
 
 # Cursor Files
 /gold
