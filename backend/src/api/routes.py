@@ -17,7 +17,7 @@ router = APIRouter()
 #===============================================#
 
 @router.get("/")
-@limiter.limit("10/minute")
+@limiter.limit("5/minute")
 async def root(request: Request):
     """Root endpoint to check if the API is running"""
     return {"message": "GitRemind API is running"}
