@@ -1,9 +1,9 @@
 'use client'
 
-import { Button } from "@/components/ui/button"
 import { createClient } from "@/lib/supabase/client"
+import styles from "./page.module.css"
 
-export default function page() {
+export default function LandingPage() {
   const supabase = createClient()
 
   async function signInWithGithub() {
@@ -16,19 +16,19 @@ export default function page() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      {/* Main card: */}
-      <div className="border-2 border-gray-300 rounded-md p-4 gap-8 flex flex-col items-center justify-center">
-        {/* Header: */}
-        <div className="flex flex-col items-center justify-center gap-2 w-full">
-          <header className="text-2xl font-bold">git remind</header>
-          <hr className="w-full"></hr>
-        </div>
-        
-        {/* Description: */}
-        <Button onClick={signInWithGithub}> Sign in with Github</Button>
+    <div className={styles.container}>
+      {/* Front image with exclusion blend mode */}
+      <div className={styles.frontImage}></div>
 
+      <div className={styles.mainTitle}>
+        <h1>Git</h1>
+        <h1 className={styles.mainTitleSub}>Remind</h1>
       </div>
+
+      <button onClick={signInWithGithub} className={styles.joinButton}>
+        Join
+      </button>
+      
     </div>
   );
 }
