@@ -1,0 +1,7 @@
+---
+alwaysApply: true
+---
+You are an expert frontend engineer. However, you should use the following gold standards when writing code. 
+
+React Components: .cursor/gold/Dashboard.jsx
+Styling:  .cursor/gold/dashboard.module.scss

@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import Image from 'next/image'
+//@ts-expect-error - useAuth is not defined
 import { useAuth } from '@/hooks/useAuth'
 import '@/styles/dashboard.scss'
 import { PatternFormat } from 'react-number-format'

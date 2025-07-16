@@ -1,7 +1,7 @@
 'use client'
 
 import { createClient } from "@/lib/supabase/client"
-import styles from "./page.module.css"
+import '@/styles/landing.scss'
 
 export default function LandingPage() {
   const supabase = createClient()
@@ -16,16 +16,16 @@ export default function LandingPage() {
   }
 
   return (
-    <div className={styles.container}>
+    <div className="landing">
       {/* Front image with exclusion blend mode */}
-      <div className={styles.frontImage}></div>
+      <div className="landing__front-image"></div>
 
-      <div className={styles.mainTitle}>
+      <div className="landing__main-title">
         <h1>Git</h1>
-        <h1 className={styles.mainTitleSub}>Remind</h1>
+        <h1 className="landing__main-title-sub">Remind</h1>
       </div>
 
-      <button onClick={signInWithGithub} className={styles.joinButton}>
+      <button onClick={signInWithGithub} className="landing__join-button">
         Join
       </button>
       

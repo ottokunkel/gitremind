@@ -1,0 +1,174 @@
+$primary-background: #B4B4B4;
+$text-color: #EDE6DF;
+$input-background: #F2EBE3;
+$border-color: #F2EBE3;
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  background: url('/background.png') center / cover no-repeat fixed;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+
+  &__settings-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $primary-background;
+    mix-blend-mode: difference;
+    margin: 30px; 
+    padding: 40px;
+    min-height: 100%;
+    width: 40%;
+    z-index: 1;
+  }
+
+  &__settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
+
+
+  &__phone-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__phone-label {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1;
+    color: $text-color;
+    mix-blend-mode: difference;
+  }
+
+  &__phone-input {
+    padding-left: 10px;
+    font-size: 24px;
+    height: 40px;
+    width: 100%;
+    opacity: 0.5;
+    background: $input-background;
+    mix-blend-mode: difference;
+  }
+
+  &__phone-input:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &__reminder-wrapper {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__reminder-label {
+    user-select: none;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1;
+    height: 100%;
+    align-content: center;
+    color: $text-color;
+    mix-blend-mode: difference;
+  }
+
+  &__reminder-toggle {
+    align-self: center;
+    height: 40px;
+    width: 40px;
+    opacity: 0.5;
+    background: $input-background;
+    mix-blend-mode: difference;
+    justify-self: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &--checked {
+      opacity: 1;
+      border: 10px solid $border-color;
+      background: transparent;
+      opacity: 0.5;
+    }
+    &--checked:hover {
+      opacity: 1;
+    }
+  }
+
+  &__save-button {
+    align-self: flex-end;
+    cursor: pointer;
+    user-select: none;
+    height: 40px;
+    background-color: $input-background;
+    text-align: right;
+    margin-top: 10%;
+    line-height: 1;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    mix-blend-mode: difference;
+    border: none;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__github-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin: 30px;
+    flex-grow: 1; 
+    justify-content: center;
+  }
+
+  &__github-avatar {
+    border: 4px solid $border-color;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  &__github-username {
+    font-size: 24px;
+    font-weight: 700;
+    color: $text-color;
+    mix-blend-mode: difference;
+    text-decoration: none;
+  }
+
+  &__sign-out-button {
+    position: absolute;
+    cursor: pointer;
+    user-select: none;
+    top: 0;
+    right: 0;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 10px 20px;
+    color: $text-color;
+    mix-blend-mode: difference;
+  }
+
+  &__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-size: 18px;
+    color: $text-color;
+  }
+} 
